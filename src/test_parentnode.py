@@ -18,3 +18,10 @@ class TestParentNode(unittest.TestCase):
             parent_node.to_html(),
             "<div><span><b>grandchild</b></span></div>",
         )
+
+    def test_to_html_without_children(self):
+        parent_node = ParentNode("p", None)
+        with self.assertRaises(ValueError):
+            parent_node.to_html()
+
+
